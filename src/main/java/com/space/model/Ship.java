@@ -117,7 +117,7 @@ public class Ship {
 
     public Double getCalculateRating(){
         return new BigDecimal((80 * getSpeed() * (getUsed() ? 0.5 : 1)) / (getCurrentYear() - getProdYear() + 1))
-                .setScale(2, RoundingMode.HALF_EVEN).doubleValue();
+                .setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
     private Integer getCurrentYear(){
