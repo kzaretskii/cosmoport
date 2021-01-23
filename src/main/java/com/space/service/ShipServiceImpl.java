@@ -46,7 +46,7 @@ public class ShipServiceImpl implements ShipService{
     public Ship createShip(ShipParameters shipParameters) {
         if (shipParameters.getUsed() == null)
             shipParameters.setUsed(false);
-        shipParameters.setSpeed(new BigDecimal(shipParameters.getSpeed()).setScale(2, RoundingMode.HALF_UP).doubleValue());
+        shipParameters.setSpeed(new BigDecimal(shipParameters.getSpeed()).setScale(2, RoundingMode.HALF_DOWN).doubleValue());
         if (!shipParameters.checkFieldsForCreate())
             throw new ShipException(HttpStatus.BAD_REQUEST);
         Ship ship = new Ship(shipParameters);
